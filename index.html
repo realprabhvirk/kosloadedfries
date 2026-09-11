@@ -49,9 +49,16 @@
 
 <main id="main">
 
-  <!-- HERO — the signature element. Radial glow is coded in CSS (see styles.css .hero);
-       the mascot art itself is the real supplied poster image. -->
+  <!-- HERO — the signature element. The dark-to-transparent wash and ember
+       glow that make the overlaid headline readable are coded in CSS
+       (see styles.css .hero::before); the mascot photo itself is real. -->
   <section class="hero">
+    <div class="hero-media">
+      <picture>
+        <source srcset="images/mascot-hero-running.webp" type="image/webp">
+        <img src="images/mascot-hero-running.png" alt="Ko's Loaded Fries mascot, an illustrated red fry box wearing navy boxing gloves, running while holding a cup of loaded fries, lit against a dark smoky background with an orange glow" width="1672" height="941">
+      </picture>
+    </div>
     <div class="wrap">
       <div class="hero-copy" data-reveal>
         <p class="hero-eyebrow">Hyperdome Loganholme &middot; Thu / Fri / Sat</p>
@@ -62,12 +69,6 @@
           <a class="btn btn-primary btn-lg" href="menu.html">See the Menu</a>
           <a class="btn btn-outline btn-lg" href="#find-us">Find the Truck</a>
         </div>
-      </div>
-      <div class="hero-media">
-        <picture>
-          <source srcset="images/mascot-hero-poster.webp" type="image/webp">
-          <img src="images/mascot-hero-poster.png" alt="Ko's Loaded Fries mascot, an illustrated red fry box wearing navy boxing gloves, running while holding a cup of loaded fries, lit against a dark red and orange glow" width="1024" height="1024">
-        </picture>
       </div>
     </div>
   </section>

@@ -345,28 +345,58 @@ input:focus-visible,
 }
 
 /* =========================================================================
-   Hero — the signature element. Radial glow built in CSS, not baked image.
+   Hero — the signature element. The mascot photo is real (see /images);
+   the dark-to-transparent wash and ember glow that make the overlaid type
+   readable are coded gradients layered on top of it, not a flattened image.
    ========================================================================= */
 
 .hero {
   position: relative;
-  padding-block: clamp(3rem, 9vw, 6rem);
-  background:
-    radial-gradient(ellipse 65% 55% at 68% 40%, rgba(242, 132, 42, 0.45), transparent 70%),
-    radial-gradient(ellipse 80% 70% at 20% 80%, rgba(122, 31, 31, 0.35), transparent 70%),
-    var(--ko-black);
+  min-height: clamp(480px, 62vw, 720px);
+  display: flex;
+  align-items: center;
   overflow: hidden;
   border-bottom: 4px solid var(--ko-maroon);
+  background: var(--ko-black);
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+/* Legibility wash + brand glow, coded on top of the real photo */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 55% 60% at 15% 75%, rgba(242, 132, 42, 0.35), transparent 70%),
+    linear-gradient(100deg,
+      var(--ko-black) 0%,
+      rgba(13, 10, 10, 0.94) 30%,
+      rgba(13, 10, 10, 0.55) 52%,
+      rgba(13, 10, 10, 0.12) 68%,
+      transparent 82%);
 }
 
 .hero .wrap {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-block: clamp(3rem, 9vw, 6rem);
 }
 
-.hero-copy { position: relative; z-index: 2; }
+.hero-copy { max-width: 40rem; }
 
 .hero-eyebrow {
   display: inline-block;
@@ -409,25 +439,34 @@ input:focus-visible,
   box-shadow: 0 2px 0 rgba(0,0,0,0.6);
 }
 
-.hero-media {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-media img {
-  width: 100%;
-  max-width: 480px;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-}
-
 @media (max-width: 860px) {
-  .hero .wrap { grid-template-columns: 1fr; text-align: center; }
+  /* Full-bleed cover-and-overlay reads great wide, but crops the mascot
+     badly at portrait ratios — stack instead: photo band on top, copy
+     below it in normal flow. */
+  .hero {
+    display: block;
+    min-height: 0;
+  }
+  .hero-media {
+    position: relative;
+    inset: auto;
+    height: 46vh;
+    min-height: 260px;
+    max-height: 380px;
+  }
+  .hero-media img { object-position: 75% center; }
+  .hero::before {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 100%, rgba(242, 132, 42, 0.3), transparent 70%),
+      linear-gradient(180deg,
+        rgba(13, 10, 10, 0.05) 0%,
+        rgba(13, 10, 10, 0.65) 78%,
+        var(--ko-black) 100%);
+  }
+  .hero .wrap { padding-block: 1.75rem 3rem; text-align: center; }
+  .hero-copy { max-width: none; margin-inline: auto; }
   .hero-tagline { max-width: none; margin-inline: auto; }
   .rope-divider { margin-inline: auto; }
-  .hero-media { order: -1; }
-  .hero-media img { max-width: 320px; }
   .btn-row { justify-content: center; }
 }
 
