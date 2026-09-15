@@ -11,7 +11,7 @@
 <meta property="og:image" content="images/mascot-hero-poster.png">
 <meta property="og:type" content="website">
 
-<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
 
@@ -27,7 +27,10 @@
   <div class="wrap">
     <a class="brand" href="index.html">
       <!-- Isolated mascot mark, cropped from mascot-hero-poster.png — see /images. Not a standalone logo file from the client, this is the working substitute. -->
-      <img class="brand-mark" src="images/mascot-face-square.png" alt="" width="48" height="48">
+      <picture>
+        <source srcset="images/mascot-face-square.webp" type="image/webp">
+        <img class="brand-mark" src="images/mascot-face-square.png" alt="" width="48" height="48">
+      </picture>
       <!-- Built wordmark lockup (coded type, not an extracted logo file) -->
       <span class="brand-word">KO'S <span>LOADED FRIES</span></span>
     </a>
@@ -193,7 +196,10 @@
     <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-brand">
-          <img src="images/mascot-face-square.png" alt="" width="44" height="44">
+          <picture>
+            <source srcset="images/mascot-face-square.webp" type="image/webp">
+            <img src="images/mascot-face-square.png" alt="" width="44" height="44">
+          </picture>
           <span>Ko's Loaded Fries</span>
         </div>
         <p>Mobile food truck — no shopfront, just find us at Hyperdome.</p>

@@ -931,6 +931,8 @@ section { padding-block: clamp(3rem, 6vw, 5rem); }
 .about-block.reverse .about-media { order: 2; }
 
 .about-media img {
+  width: 100%;
+  height: auto;
   border-radius: var(--radius-md);
   border: 3px solid var(--ko-red);
 }
