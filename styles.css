@@ -811,12 +811,6 @@ section { padding-block: clamp(3rem, 6vw, 5rem); }
   letter-spacing: 0.02em;
 }
 
-.page-header-accent img {
-  width: 140px;
-  height: auto;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));
-}
-
 @media (max-width: 700px) {
   .page-header .wrap { flex-direction: column; text-align: center; }
 }
